@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test HTML CSS</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: linear-gradient(to bottom, #010026df 50%, #ffffff 50%);
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        text-align: center;
+        flex-direction: column;
+        padding-top: 50px;
+      }
+
+      .card-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        z-index: 100;
+        margin: 0 auto;
+        padding: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        border: 1px solid black;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+        background-color: white;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      .card h3 {
+        height: 20px;
+        display: flex;
+        font-size: 12px;
+        background-color: darkgray;
+        padding: 4px;
+        margin: 0;
+      }
+
+      .card p {
+        font-size: 40px;
+        font-weight: bold;
+        margin: 20px 0;
+        color: #333;
+      }
+
+      .card p sup {
+        font-size: 20px;
+        vertical-align: super;
+      }
+
+      .card ul {
+        list-style: none;
+        text-align: left;
+        margin: 8px;
+        padding: 2px 0;
+      }
+
+      .card button {
+        background-color: rgb(0, 149, 255);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .card button:active {
+        background-color: rgb(28, 102, 158);
+      }
+
+      .selected {
+        border: 2px solid green;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f1f1f1;
+      }
+
+      footer h2 {
+        margin: 0;
+      }
+
+      footer div {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 10px 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1 style="font-size: 24px; color: whitesmoke "> Simple Pricing!</h1>
+        <p style="font-size: 22px; color: whitesmoke">
+          The most advanced customer support tools with a simple <br />
+          and affordable pricing. And you can always try for 30 days.<br />
+          free
+        </p>
+      </div>
+    </header>
+    <main>
+      <div class="card-container">
+        <div class="card" id="card1" onclick="selectedCard(this)">
+          <h3>BASIC</h3>
+          <p><sup>$</sup><span>4</span>/month</p>
+          <ul>
+            <li><span style="font-weight: 800;">10</span> Project</li>
+            <li><span style="font-weight: 800;">10</span> Page</li>
+            <li><span style="font-weight: 800;">100</span> Mb Disk Space</li>
+          </ul>
+          <button onclick="buyNow(event)">BUY NOW</button>
+        </div>
+        <div class="card" id="card2" onclick="selectedCard(this)">
+          <h3>STANDARD</h3>
+          <p><sup>$</sup><span>8</span>/month</p>
+          <ul>
+            <li><span style="font-weight: 800;">20</span> Project</li>
+            <li><span style="font-weight: 800;">20</span> Page</li>
+            <li><span style="font-weight: 800;">200</span> Mb Disk Space</li>
+          </ul>
+          <button onclick="buyNow(event)">BUY NOW</button>
+        </div>
+        <div class="card" id="card3" onclick="selectedCard(this)">
+          <h3>ADVANCE</h3>
+          <p><sup>$</sup><span>12</span>/month</p>
+          <ul>
+            <li><span style="font-weight: 800;">40</span> Project</li>
+            <li><span style="font-weight: 800;">40</span> Page</li>
+            <li><span style="font-weight: 800;">500</span> Mb Disk Space</li>
+          </ul>
+          <button onclick="buyNow(event)">BUY NOW</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <h2>Frequently Asked Questions</h2>
+      <div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <h3>Title 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia facilis
+            ut vitae fugiat quae soluta ex error sequi expedita dignissimos?
+          </p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <h3>Title 2</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum sequi,
+            ducimus reprehenderit dolorem est eligendi aliquid ad quam doloremque
+            voluptates a inventore.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function buyNow(event) {
+        event.stopPropagation();
+        alert("Success! You've purchased the plan.");
+      }
+      function selectedCard(card) {
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((c) => {
+          c.classList.remove("selected");
+        });
+        card.classList.add("selected");
+      }
+    </script>
+  </body>
+</html>
